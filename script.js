@@ -315,6 +315,21 @@ document.querySelector('.notes-container .filter p').addEventListener('click', e
         e.target.closest('.filter-container').remove()
         renderNotebooks()
         renderNotes(idd, notebooked)
+       }else   if(e.target.textContent === 'Descending'){
+          notebooks = notebooks.map(note => {
+            if(note.id !== idd) return note;
+
+            const sortDescendingNotes = note.notes.sort((a, b) => b.title.localeCompare(a.title))
+
+            return {
+                ...note,
+                notes: sortDescendingNotes
+            }
+        })
+        localStorage.setItem('notebooks', JSON.stringify(notebooks))
+        e.target.closest('.filter-container').remove()
+        renderNotebooks()
+        renderNotes(idd, notebooked)
        }
     }))
        if(document.querySelector('.notes-container').contains(document.querySelector('.notes-container .filter-container'))){
