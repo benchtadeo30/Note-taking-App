@@ -1,0 +1,919 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins";
+    color: white;
+    display: flex;
+}
+
+.container{
+    display: flex;
+}
+
+.notebooks-container{
+    width: 300px;
+    height: 100vh;
+    background-color: rgb(42, 38, 38);
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    z-index: 1000;
+}
+.notebooks-container .notebooks-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notebooks-container .notebooks-title h3{
+   font-size: 25px;
+}
+
+.notebooks-container .notebooks-title span:nth-child(3){
+    padding: 3px;
+    background-color: white;
+    color: rgb(42, 38, 38);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.notebooks-container .notebooks-title ion-icon{
+    font-size: 30px;
+}
+
+.notebooks-container .notebooks-title span:nth-child(3):hover{
+    background-color: rgb(217, 217, 217);
+}
+
+.notebooks-container .notebooks-list{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 20px;
+    align-items: center;
+}
+
+.notebooks-container .notebooks-list .notes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    margin-left: auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 1000;
+}
+
+.notebooks-container .notebooks-list .notes ion-icon{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.notebooks-container .notebooks-list .notes::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -40%;
+    width: 144.6%;
+    height: 100%;
+    padding-block: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: -100;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.notebooks-container .notebooks-list .notes:hover:before{
+    opacity: 1;
+}
+
+.notebooks-container .notebooks-list .notes p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.notebooks-container .notebooks-list .notes span{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.notes-container{
+    width: 500px;
+    height: 100vh;
+    background-color: rgb(233, 233, 233);
+    color: #303030;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.notes-container .notes-title{
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notes-container .notes-title span{
+    font-size: 30px;
+}
+
+.notes-container .notes-title span:nth-child(1){
+    margin: auto;
+}
+
+.notes-container .notes-title span:nth-child(2){
+    color: #8f8f8f;
+    cursor: pointer;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.notes-container .notes-title span:nth-child(2):hover,
+.notes-container .notes-title ion-icon:hover
+{
+     background-color: rgb(213, 213, 213);
+}
+
+.notes-container .notes-title ion-icon{
+    font-size: 30px;
+    color: #8f8f8f;
+    cursor: pointer;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+
+.notes-container .notes-title ion-icon:active,
+.notes-container .notes-title span:nth-child(3):active {
+  background-color: rgb(62, 132, 237);
+  color: white;
+}
+
+
+.notes-container .filter{
+    width: 90%;
+    padding: 8px;
+    background-color: white;
+    color: rgb(219, 219, 219);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.notes-container .filter span{
+    font-size: 30px;
+}
+
+.notes-container .filter p{
+    font-size: 20px;
+}
+
+.notes-container .notes-lists{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.notes-container .notes-lists .note{
+    padding: 20px;
+    cursor: pointer;
+    border-block: 1px solid #b1b1b1;
+}
+
+.notes-container .notes-lists .note{
+    display: flex;
+    align-items: center;
+}
+
+.notes-container .notes-lists .note .trash-btn{
+    font-size: 30px;
+}
+
+.notes-container .notes-lists .note:hover{
+background-color: #d2d2d2;
+}
+
+
+.notes-container .notes-lists .note h3{
+    font-size: 22px;
+    z-index: 100;
+}
+
+.notes-container .notes-lists .note .note-details{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: fit-content;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.notes-container .notes-lists .note .note-details span{
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: rgb(255, 166, 32);
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 100;
+}
+
+.notes-container .notes-lists .note .note-details p{
+    color: #0f66c9;
+}
+
+.notes-container .notes-lists .note p:nth-child(3) {
+    font-size: 18px;
+    z-index: 100;
+    width: 90%;
+    word-wrap: break-word;
+}
+
+.markdown-container{
+    width: 100%;
+    height: 100vh;
+    color: #303030;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.markdown-container .markdown-tools{
+    padding: 20px;
+}
+
+.markdown-container .markdown-tools{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.markdown-container .markdown-tools span{
+    cursor: pointer;
+}
+
+.markdown-container .markdown-preview{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.markdown-container .markdown-preview .markdown-title{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.markdown-container .markdown-preview .markdown-title p{
+    margin: auto;
+}
+
+.markdown-container .markdown-preview .markdown-title button{
+    padding: 8px 20px;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: #0f66c9;
+    cursor: pointer;
+    color: white;
+}
+
+.markdown-container .markdown-preview .markdown-title button:hover{
+    background-color: #0c52a2;
+}
+
+.markdown-container .markdown-preview p:nth-child(1){
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.markdown-container .markdown-preview .editor{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.markdown-container .markdown-preview .editor .editor-title{
+    padding: 8px 20px;
+    border-bottom: 1px solid #b9b9b9;
+}
+
+.markdown-container .markdown-preview .editor .editor-title:focus{
+    outline: none;
+}
+
+.markdown-container .markdown-preview .editor .editor-title h3{
+    font-size: 35px;
+}
+
+.ql-toolbar{
+    display: flex;
+    justify-content: center;
+}
+
+#editor{
+    padding: 10px;
+}
+
+.notebooks-container .notebooks-list .create{
+    margin: auto 0;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 20px;
+    text-align: center;
+}
+
+.no-notes{
+    margin: auto;
+    width: fit-content;
+    color: rgba(0,0,0, 0.4);
+    font-size: 25px;
+    text-align: center;
+}
+
+.note-clicked{
+    background-color: #0f66c9 !important;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-clicked .note-details p{
+    color: white !important;
+}
+
+.addNotebook-container{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.addNotebook-container .addNotebook{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.6);
+}
+
+.addNotebook-container .addNotebook .addNotebook-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title h3{
+    font-size: 30px;
+    color: #1E1E1E;
+    margin: auto;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title ion-icon{
+    font-size: 35px;
+    color: black;
+    cursor: pointer;
+}
+
+.addNotebook-container .addNotebook input{
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    outline: 1px solid rgba(0,0,0, 0.4);
+    font-size: 20px;
+    background-color: rgb(223, 223, 223);
+}
+
+.addNotebook-container .addNotebook input:focus{
+    outline: 2px solid black;
+}
+
+.addNotebook-container .addNotebook button{
+    width: 100%;
+    padding: 10px;
+    background-color: #0f66c9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.addNotebook-container .addNotebook button:hover{
+    background-color: #0c52a2;
+}
+
+.addNotes-container{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.addNotes-container .addNotes{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.6);
+}
+
+.addNotes-container .addNotes .addNotes-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.addNotes-container .addNotes .addNotes-title h3{
+    font-size: 30px;
+    color: #1E1E1E;
+    margin: auto;
+}
+
+.addNotes-container .addNotes .addNotes-title ion-icon{
+    font-size: 35px;
+    color: black;
+    cursor: pointer;
+}
+
+.addNotes-container .addNotes .addNotes-input{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.addNotes-container .addNotes .addNotes-input label{
+    color: #1E1E1E;
+    font-size: 20px;
+    align-self: self-start;
+}
+
+.addNotes-container .addNotes .addNotes-input input{
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    outline: 1px solid rgba(0,0,0, 0.4);
+    font-size: 20px;
+    background-color: rgb(223, 223, 223);
+}
+
+.addNotes-container .addNotes button{
+     width: 100%;
+    padding: 10px;
+    background-color: #0f66c9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+
+.addNotes-container .addNotes button:hover{
+    background-color: #0c52a2;
+}
+
+.notes-container .filter-container{
+    width: 90%;
+    position: absolute;
+    top: 140px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0, 0.2);
+    animation: slideFade 1.2s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(-55%);
+}
+
+
+@keyframes slideFade {
+    0%{
+        opacity: 0;
+        transform: translateY(-55%);
+    }
+    70%{
+        transform: translateY(10%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.notes-container .filter-container p{
+    font-size: 18px;
+    text-align: center;
+    color: #4d4d4d;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.notes-container .filter-container p:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+.notes-container .filter-container p:active{
+    background-color: rgb(191, 191, 191);
+}
+
+.notes-container .filter-container p:nth-child(1), .notes-container .filter-container p:nth-child(2){
+  border-bottom: 1px solid rgba(0,0,0, 0.4);
+}
+
+@media only screen and  (max-width: 1171px) {
+    body{
+        flex-direction: column;
+    }
+    .notebooks-container{
+        width: 100%;
+    }
+    .notes-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+.addNotebook-container .addNotebook{
+    width: 500px;
+    padding: 20px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title h3{
+    font-size: 25px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title ion-icon{
+    font-size: 28px;
+}
+
+.addNotebook-container .addNotebook input{
+    padding: 8px 12px;
+    font-size: 18px;
+}
+
+.addNotebook-container .addNotebook button{
+    font-size: 20px;
+    padding: 10px;
+}
+
+.addNotes-container{
+padding: 30px;
+}
+
+.addNotes-container .addNotes{
+    width: 500px;
+    padding: 20px;
+}
+
+.addNotes-container .addNotes .addNotes-title h3{
+    font-size: 28px;
+}
+
+.addNotes-container .addNotes .addNotes-title ion-icon{
+    font-size: 33px;
+}
+
+.addNotes-container .addNotes .addNotes-input label{
+    font-size: 20px;
+}
+
+.addNotes-container .addNotes .addNotes-input input{
+    padding: 8px 12px;
+    font-size: 18px;
+}
+
+.addNotes-container .addNotes button{
+    padding: 10px;
+    font-size: 20px;
+}
+
+}
+
+@media screen and (max-width: 600px) {
+    .notebooks-container .notebooks-title h3{
+   font-size: 20px;
+}
+
+.notebooks-container .notebooks-title span{
+ font-size: 20px;
+}
+
+.notebooks-container .notebooks-title ion-icon{
+    font-size: 25px;
+}
+.notebooks-container .notebooks-list .notes ion-icon{
+    font-size: 20px;
+}
+.notebooks-container .notebooks-list .notes p{
+    font-size: 20px;
+}
+
+.notebooks-container .notebooks-list .create{
+    font-size: 15px;
+}
+
+.notes-container .notes-title span{
+    font-size: 20px;
+}
+
+.notes-container .no-notes{
+    font-size: 20px;
+}
+
+.notes-container .notes-lists .note .trash-btn{
+    font-size: 25px;
+}
+.notes-container .notes-lists .note h3{
+    font-size: 17px;
+}
+
+.notes-container .notes-lists .note p:nth-child(3){
+    font-size: 13px;
+}
+
+.notes-container .notes-lists .note .note-details p{
+    font-size: 13px;
+}
+
+.notes-container .filter span{
+    font-size: 25px;
+}
+
+.notes-container .filter p{
+    font-size: 15px;
+}
+
+.notes-container .filter-container p{
+    font-size: 13px;
+}
+
+.addNotebook-container{
+    padding: 30px;
+}
+
+.addNotebook-container .addNotebook{
+    width: 450px;
+    padding: 15px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title h3{
+    font-size: 18px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title ion-icon{
+    font-size: 23px;
+}
+
+.addNotebook-container .addNotebook input{
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 15px;
+}
+
+.addNotebook-container .addNotebook button{
+    font-size: 13px;
+    padding: 5px;
+}
+
+.addNotes-container{
+padding: 30px;
+}
+
+.addNotes-container .addNotes{
+    width: 400px;
+    padding: 15px;
+}
+
+.addNotes-container .addNotes .addNotes-title h3{
+    font-size: 23px;
+}
+
+.addNotes-container .addNotes .addNotes-title ion-icon{
+    font-size: 28px;
+}
+
+.addNotes-container .addNotes .addNotes-input label{
+    font-size: 15px;
+}
+
+.addNotes-container .addNotes .addNotes-input input{
+    padding: 5px 12px;
+    font-size: 15px;
+}
+
+.addNotes-container .addNotes button{
+    padding: 5px;
+    font-size: 13px;
+}
+
+}
+
+@media screen and (max-width: 500px){
+       .notebooks-container .notebooks-title h3{
+   font-size: 15px;
+}
+    .notebooks-container .notebooks-list .notes p{
+    font-size: 15px;
+}
+.notebooks-container .notebooks-list .create{
+    font-size: 10px;
+}
+.notebooks-container .notebooks-title span{
+ font-size: 15px;
+}
+.notebooks-container .notebooks-title ion-icon{
+    font-size: 20px;
+}
+.notes-container .notes-lists .note{
+    padding: 10px;
+}
+.notes-container .no-notes{
+    font-size: 15px;
+}
+.notes-container .notes-title span{
+    font-size: 15px;
+}
+.notes-container .notes-lists .note .trash-btn{
+    font-size: 18px;
+}
+.notes-container .notes-lists .note h3{
+    font-size: 12px;
+}
+
+.notes-container .notes-lists .note p:nth-child(3){
+    font-size: 8px;
+}
+
+.notes-container .notes-lists .note .note-details p{
+    font-size: 8px;
+}
+
+.notes-container .filter span{
+    font-size: 20px;
+}
+
+.notes-container .filter p{
+    font-size: 10px;
+}
+
+.notes-container .filter-container p{
+    font-size: 8px;
+}
+
+.markdown-container .markdown-preview .markdown-title button{
+    font-size: 13px;
+}
+
+.markdown-container .markdown-preview .markdown-title p{
+font-size: 15px;
+}
+.markdown-container .markdown-preview .editor .editor-title h3{
+    font-size: 20px;
+}
+}
+
+@media screen and (max-width: 400px) {
+    
+.addNotebook-container .addNotebook{
+    width: 400px;
+    padding: 15px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title h3{
+    font-size: 14px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title ion-icon{
+    font-size: 18px;
+}
+
+.addNotebook-container .addNotebook input{
+    padding: 3px 8px;
+    font-size: 13px;
+}
+
+.addNotebook-container .addNotebook button{
+    font-size: 10px;
+    padding: 4px;
+}
+
+.addNotes-container .addNotes{
+    width: 400px;
+    padding: 15px;
+}
+
+.addNotes-container .addNotes .addNotes-title h3{
+    font-size: 16px;
+}
+
+.addNotes-container .addNotes .addNotes-title ion-icon{
+    font-size: 22px;
+}
+
+.addNotes-container .addNotes .addNotes-input label{
+    font-size: 11px;
+}
+
+.addNotes-container .addNotes .addNotes-input input{
+    padding: 3px 8px;
+    font-size: 12px;
+}
+
+.addNotes-container .addNotes button{
+    padding: 4px;
+    font-size: 10px;
+}
+
+}
+
+@media screen and (max-width: 300px){
+    .addNotebook-container .addNotebook .addNotebook-title h3{
+    font-size: 12px;
+}
+
+.addNotebook-container .addNotebook .addNotebook-title ion-icon{
+    font-size: 16px;
+}
+.addNotebook-container .addNotebook input{
+    padding: 3px 8px;
+    font-size: 10px;
+}
+
+.addNotes-container .addNotes{
+    padding: 10px;
+}
+
+.addNotes-container .addNotes .addNotes-title h3{
+    font-size: 13px;
+}
+
+.addNotes-container .addNotes .addNotes-title ion-icon{
+    font-size: 18px;
+}
+
+.addNotes-container .addNotes .addNotes-input label{
+    font-size: 10px;
+}
+
+.addNotes-container .addNotes .addNotes-input input{
+    font-size: 11px;
+}
+.addNotes-container .addNotes button{
+    padding: 3px;
+    font-size: 9px;
+}
+}
